@@ -23,7 +23,7 @@ This notebook documents an exploration work aimed at understanding what kind of 
 While I was able to extract such information, there were some visualization issues related to the archipelago of San Andrés, Providencia and Santa Catalina. In particular, the archipelago looks pretty small and far from mainland. While this reflects reality, it isn't visually appealing. Figure 1 below shows the result.
 
 <p style="line-height:0.5" align="center">
-    <img src="images/dashboard_deparments.png" />
+    <img src="images/dashboard_departments.png" />
 </p>
 <p style="line-height:0.5" align="center"><b>Figure 1.</b> Shape map in Power BI.</p>
 
@@ -42,7 +42,7 @@ This notebook documents the work that solves the visualization issues with the a
 Figure 2 below shows the result.
 
 <p style="line-height:0.5" align="center">
-    <img src="images/dashboard_deparments_r.png" />
+    <img src="images/dashboard_departments_r.png" />
 </p>
 <p style="line-height:0.5" align="center"><b>Figure 2.</b> Updated shape map in Power BI.</p>
 
