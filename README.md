@@ -1,6 +1,8 @@
 # TopoJSON of Colombia's departments
 
-In this repo I provide Python notebooks that document the work I performed to create a TopoJSON file of Colombia's departments to be used in Power BI as a shape map.
+In this repo I provide Python notebooks that document the work I performed to create a TopoJSON file of Colombia's departments to be used in Power BI as a shape map. This file improves the visualization of a particular deparment so that it looks larger and closer to mainland.
+
+I'm planning a future update to create a TopoJSON file of Colombia's towns with the same visualization improvement.
 
 ## Getting started
 
@@ -14,6 +16,12 @@ python -m pip install -r requirements.txt
 
 You can do the same with the file `dev-requirements.txt`. This file lists some linting and code formatting libraries that can be used with a source-code editor like VS Code.
 
+To make sure the notebooks work properly, you have to:
+
+1. Run the notebook `modify_map.ipynb` (located in the folder **existing_topojson_map**). This will create the file `mapa_departamentos.json` that is used in step 3
+2. Download the GeoJSON file mentioned in the notebook `create_map.ipynb` (located in the folder **new_topojson_map**) and place it in the same folder where the notebook is
+3. Run the notebook `create_map.ipynb`
+
 ## Notebooks
 
 ### modify_map
@@ -26,8 +34,6 @@ While I was able to extract such information, there were some visualization issu
     <img src="images/dashboard_departments.png" />
 </p>
 <p style="line-height:0.5" align="center"><b>Figure 1.</b> Shape map in Power BI.</p>
-
-The notebook can be found in the folder **existing_topojson_map**.
 
 ### create_map
 
@@ -46,7 +52,9 @@ Figure 2 below shows the result.
 </p>
 <p style="line-height:0.5" align="center"><b>Figure 2.</b> Updated shape map in Power BI.</p>
 
-The notebook can be found in the folder **new_topojson_map**.
+## Credits
+
+This project was heavily influenced by the work of John Guerra. Check [his forum on GeoJSON map of Colombia](https://gist.github.com/john-guerra/43c7656821069d00dcbc) for a foretaste.
 
 I highly appreciate feedback and you can reach out to me on [LinkedIn](https://bit.ly/jaime-linkedin) any time. I'm also working on other projects. Check this out in my [personal website](https://bit.ly/jaime-website).
 
