@@ -2,7 +2,7 @@
 
 In this repo I provide Python notebooks that document the work I performed to create a TopoJSON file of Colombia's departments to be used in Power BI as a shape map. This file improves the visualization of a particular deparment so that it looks larger and closer to mainland.
 
-Besides the topography, the file only stores the department's codes in both text and number formats. The official codes, provided by the División Político Administrativa de Colombia (DIVIPOLA), are numbers stored as text. However, when loading these text codes in Power BI, they're automatically converted to numbers. I provide both formats for the sake of completeness.
+Since the main purpose of the file is to use it as a shape map in Power BI, it only stores the department's codes since additional department-related information can be pulled by making use of Power BI capabilities. The codes are stored in both text and number formats. The official codes, provided by the División Político Administrativa de Colombia (DIVIPOLA), are numbers stored as text. However, when loading these text codes in Power BI, they're automatically converted to numbers. I provide both formats for the sake of completeness.
 
 I'm planning a future update to create a TopoJSON file of Colombia's towns with the same visualization improvement.
 
