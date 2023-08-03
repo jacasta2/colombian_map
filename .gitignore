@@ -163,4 +163,6 @@ cython_debug/
 # Added by me
 /.vscode
 mapa_departamentos.json
+mapa_municipios.json
 /new_topojson_map/*.geojson
+/new_topojson_map/*.csv

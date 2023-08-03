@@ -1,10 +1,8 @@
 # TopoJSON of Colombia's departments
 
-In this repo I provide Python notebooks that document the work I performed to create a TopoJSON file of Colombia's departments to be used in Power BI as a shape map. This file improves the visualization of a particular deparment so that it looks larger and closer to mainland.
+In this repo I provide Python notebooks that document the work I performed to create two TopoJSON files to be used in Power BI as shape maps: one of Colombia's departments and one of Colombia's towns. These files improve the visualization of a particular deparment so that it looks larger and closer to mainland.
 
-Since the main purpose of the file is to use it as a shape map in Power BI, it only stores the department's codes since additional department-related information can be pulled by making use of Power BI capabilities. The codes are stored in both text and number formats. The official codes, provided by the División Político Administrativa de Colombia (DIVIPOLA), are numbers stored as text. However, when loading these text codes in Power BI, they're automatically converted to numbers. I provide both formats for the sake of completeness.
-
-I'm planning a future update to create a TopoJSON file of Colombia's towns with the same visualization improvement.
+Since the final purpose is to use the files as shape maps in Power BI, they only store the department and town codes since additional department and town-related information can be pulled by making use of Power BI capabilities. The codes are stored in both text and number formats. The official codes, provided by the División Político Administrativa de Colombia (DIVIPOLA), are numbers stored as text. However, when loading these text codes in Power BI, they're automatically converted to numbers. I provide both formats in both files for the sake of completeness.
 
 ## Getting started
 
@@ -21,7 +19,7 @@ You can do the same with the file `dev-requirements.txt`. This file lists some l
 To make sure the notebooks work properly, you have to:
 
 1. Run the notebook `modify_map.ipynb` (located in the folder **existing_topojson_map**). This will create the file `mapa_departamentos.json` that is used in step 3
-2. Download the GeoJSON file mentioned in the notebook `create_map.ipynb` (located in the folder **new_topojson_map**) and place it in the same folder where the notebook is
+2. Download the GeoJSON files mentioned in the notebook `create_map.ipynb` (located in the folder **new_topojson_map**) and place them in the same folder where the notebook is
 3. Run the notebook `create_map.ipynb`
 
 ## Notebooks
@@ -35,16 +33,18 @@ While I was able to extract such information, there were some visualization issu
 <p style="line-height:0.5" align="center">
     <img src="images/dashboard_departments.png" />
 </p>
-<p style="line-height:0.5" align="center"><b>Figure 1.</b> Shape map in Power BI.</p>
+<p style="line-height:0.5" align="center"><b>Figure 1.</b> Shape map of Colombia's departments in Power BI.</p>
 
 ### create_map
 
-This notebook documents the work that solves the visualization issues with the archipelago mentioned above. This work can be summarized in the following steps:
+This notebook documents the work that solves the visualization issues with the archipelago mentioned above.
+
+When looking at departments, San Andrés, Providencia and Santa Catalina belong to the same department and are grouped under a single multipolygon. The work to improve the visualization can be summarized in the following steps:
 
 1. Get a GeoJSON of Colombia's departments
-2. Move the archipelago islands closer together
-3. Increase the archipelago size
-4. Move the archipelago closer to mainland
+2. Detach San Andrés from Providencia and Santa Catalina and move them closer together
+3. Attach the islands back together and increase the whole archipelago size
+4. Move the whole archipelago closer to mainland
 5. Convert the updated GeoJSON to TopoJSON
 
 Figure 2 below shows the result.
@@ -52,11 +52,26 @@ Figure 2 below shows the result.
 <p style="line-height:0.5" align="center">
     <img src="images/dashboard_departments_r.png" />
 </p>
-<p style="line-height:0.5" align="center"><b>Figure 2.</b> Updated shape map in Power BI.</p>
+<p style="line-height:0.5" align="center"><b>Figure 2.</b> Updated shape map of Colombia's departments in Power BI.</p>
+
+When looking at towns, San Andrés is treated as a town and Providencia and Santa Catalina as another town and each is grouped under its own multipolygon (San Andrés has three small surrounding islands and all four islands are grouped under a single multipolygon). The work to improve the visualization can be summarized in the following steps:
+
+1. Get a GeoJSON of Colombia's towns
+2. Increase the size of both towns
+3. Move San Andrés closer to mainland
+4. Move Providencia and Santa Catalina closer to mainland
+5. Convert the updated GeoJSON to TopoJSON
+
+While simple in nature, especially after having worked with the departments, care is needed in step 4. Please refer to the notebook for details. Figure 3 below shows the result.
+
+<p style="line-height:0.5" align="center">
+    <img src="images/dashboard_towns.png" />
+</p>
+<p style="line-height:0.5" align="center"><b>Figure 3.</b> Updated shape map of Colombia's towns in Power BI.</p>
 
 ## Credits
 
-This project was heavily influenced by the work of John Guerra. Check [his forum on GeoJSON map of Colombia](https://gist.github.com/john-guerra/43c7656821069d00dcbc) for a foretaste.
+This project was motivated by the work of John Guerra. Check [his forum on GeoJSON map of Colombia](https://gist.github.com/john-guerra/43c7656821069d00dcbc) for a foretaste.
 
 I highly appreciate feedback and you can reach out to me on [LinkedIn](https://bit.ly/jaime-linkedin) any time. I'm also working on other projects. Check this out in my [personal website](https://bit.ly/jaime-website).
 
