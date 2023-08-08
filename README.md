@@ -1,4 +1,4 @@
-# TopoJSON of Colombia's departments
+# TopoJSON of Colombia's departments and towns
 
 In this repo I provide Python notebooks that document the work I performed to create two TopoJSON files to be used in Power BI as shape maps: one of Colombia's departments and one of Colombia's towns. These files improve the visualization of a particular deparment so that it looks larger and closer to mainland.
 
@@ -77,8 +77,8 @@ This notebook replicates the work done with the departments and towns GeoJSON fi
 
 In addition, I provide the final TopoJSON files. I created two versions to illustrate the differences that result when modifying the *quantization* parameter in **geo2topo**. For example, for the departments work, the two files are located in the folder **from_shapefiles/departamentos**:
 
-- mapa_departamentos.json: I use a quantization parameter equal to 1e4. The size of the resulting file is ~1.2 MB.
-- mapa_departamentos_q3.json: I use a quantization parameter equal to 1e3. The size of the resulting file is ~200 KB.
+- `mapa_departamentos.json`: I use a quantization parameter equal to 1e4. The size of the resulting file is ~1.2 MB.
+- `mapa_departamentos_q3.json`: I use a quantization parameter equal to 1e3. The size of the resulting file is ~200 KB.
 
 Figure 4 below shows the result when using a quantization equal to 1e3.
 
