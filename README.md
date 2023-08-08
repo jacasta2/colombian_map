@@ -18,9 +18,11 @@ You can do the same with the file `dev-requirements.txt`. This file lists some l
 
 To make sure the notebooks work properly, you have to:
 
-1. Run the notebook `modify_map.ipynb` (located in the folder **existing_topojson_map**). This will create the file `mapa_departamentos.json` that is used in step 3
-2. Download the GeoJSON files mentioned in the notebook `create_map.ipynb` (located in the folder **new_topojson_map**) and place them in the same folder where the notebook is
-3. Run the notebook `create_map.ipynb`
+1. Run the notebook `modify_map.ipynb` (located in the folder **existing_topojson_map**). This will create the file `mapa_departamentos.json` that is used in step 3.
+2. Download the GeoJSON files mentioned in the notebook `create_map.ipynb` (located in the folder **new_topojson_map**) and place them in the same folder where the notebook is.
+3. Run the notebook `create_map.ipynb`.
+
+In addition, the notebook `create_from_shapefile.ipynb` (located in the folder **from_shapefiles**) creates the TopoJSON maps from Esri shapefiles. These shapefiles are updated more frequently than the GeoJSON files. Thus, recent border changes in Colombian territories are more likely reflected in the former. Make sure to download the shapefiles mentioned in this notebook and place them in the corresponding subfolders. They're compressed files, so make sure to extract the source files.
 
 ## Notebooks
 
@@ -68,6 +70,24 @@ While simple in nature, especially after having worked with the departments, car
     <img src="images/dashboard_towns.png" />
 </p>
 <p style="line-height:0.5" align="center"><b>Figure 3.</b> Updated shape map of Colombia's towns in Power BI.</p>
+
+### create_from_shapefile
+
+This notebook replicates the work done with the departments and towns GeoJSON files but using corresponding Esri shapefiles. The notebook is cleaner and shorther thanks to the above learning. From the publicly available official Colombian geographic files, it seems the shapefiles are updated more frequently than the GeoJSON files. In fact, the 2018 GeoJSON files are outdated since there were recent border changes in some Colombian territories. These changes are captured in the most recent version of the shapefiles, dated 2022.
+
+In addition, I provide the final TopoJSON files. I created two versions to illustrate the differences that result when modifying the *quantization* parameter in **geo2topo**. For example, for the departments work, the two files are located in the folder **from_shapefiles/departamentos**:
+
+- mapa_departamentos.json: I use a quantization parameter equal to 1e4. The size of the resulting file is ~1.2 MB.
+- mapa_departamentos_q3.json: I use a quantization parameter equal to 1e3. The size of the resulting file is ~200 KB.
+
+Figure 4 below shows the result when using a quantization equal to 1e3.
+
+<p style="line-height:0.5" align="center">
+    <img src="images/dashboard_departments_r2.png" />
+</p>
+<p style="line-height:0.5" align="center"><b>Figure 4.</b> Shape map of Colombia's departments in Power BI using latest available official geographic information and modified quantization.</p>
+
+For the towns work, the resulting files are located in the folder **from_shapefiles/municipios**.
 
 ## Credits
 
